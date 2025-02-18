@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Add a CSS file if needed -->
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to the Homepage</h1>
+    </header>
+
+    <main>
+        <h2>Data Fetched from Database:</h2>
+        <ul>
+            <% if (data && data.length> 0) { %>
+                <% JSON.parse(data).forEach(item=> { %>
+                    <li>
+                        ID: <%= item.id %> | Code: <%= item.code %> | Created At: <%= new
+                                    Date(item.createdAt).toLocaleString() %>
+                    </li>
+                    <% }) %>
+                        <% } else { %>
+                            <p>No data available to display.</p>
+                            <% } %>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; <%= new Date().getFullYear() %> Your Website</p>
+    </footer>
+</body>
+
+</html>
